@@ -3,11 +3,28 @@
     "description": "A lib extending the native PHP DOMNode lib to handle more easily SVG elements.",
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/Arlisaha/SVG-PHP-DOM-Extender",
     "authors": [
         {
             "name": "Yann Di Serio",
             "email": "diserio.yann@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SVGPHPDOMExtender\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-1": {
+            "SVGPHPDOMExtender\\Tests": "tests/",
+            "SVGPHPDOMExtender\\Usage": "usage/"
+        }
+    } 
 }
