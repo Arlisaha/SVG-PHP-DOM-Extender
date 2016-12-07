@@ -1,0 +1,13 @@
+{
+    "name": "arlisaha/svg-php-dom-extender",
+    "description": "A lib extending the native PHP DOMNode lib to handle more easily SVG elements.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yann Di Serio",
+            "email": "diserio.yann@gmail.com"
+        }
+    ],
+    "require": {}
+}
