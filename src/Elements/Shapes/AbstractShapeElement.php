@@ -7,9 +7,10 @@ use \DOMElement;
 use \DOMException;
 use \BadMethodCallException;
 use \InvalidArgumentException;
+use SVGPHPDOMExtender\Elements\ElementInterface;
 
 /*Abstract class with basic shape properties.*/
-abstract class AbstractShapeElement extends DOMElement
+abstract class AbstractShapeElement extends DOMElement implements ElementInterface
 {
 	/**
 	 * @var XAttr $x : The x coordinate of the shape.
@@ -23,6 +24,10 @@ abstract class AbstractShapeElement extends DOMElement
 	 * @var StyleAttr $style : The Style instance to add as an attribute
 	 */
 	protected $style;
+	/**
+	 * @var TransformAttr $transform : The Transform instance to add as an attribute
+	 */
+	protected $transform;
 	
 	public function __construct() {
 		parent::__construct(static::$name);
@@ -40,9 +45,9 @@ abstract class AbstractShapeElement extends DOMElement
 	 */
 	public function __call($name, $arguments) {
 		if(preg_match('~set(.*)~', $name, $matches)) {
-			$this->{lcfirst($matches[1])}->value = $arguments[0];
+			$this->{lcfirst($matches[1])}->setValue($arguments[0]);
 		} elseif(preg_match('~get(.*)~', $name, $matches)) {
-			return $this->{lcfirst($matches[1])}->value;
+			return $this->{lcfirst($matches[1])}->getValue();
 		} else {
 			throw new BadMethodCallException(sprintf('The requested method "%s" does not exist. Only getters and setters and "appendProperties" are available.', $name));
 		}
