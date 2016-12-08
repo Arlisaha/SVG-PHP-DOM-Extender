@@ -2,8 +2,6 @@
 
 namespace SVGPHPDOMExtender\Attributes;
 
-use SVGPHPDOMExtender\Exceptions\UnexistentPropertyException;
-
 class StyleAttr extends AbstractAttr
 {
 	public static $name = 'style';
