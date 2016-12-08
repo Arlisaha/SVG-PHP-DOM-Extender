@@ -13,14 +13,6 @@ use SVGPHPDOMExtender\Elements\ElementInterface;
 abstract class AbstractShapeElement extends DOMElement implements ElementInterface
 {
 	/**
-	 * @var XAttr $x : The x coordinate of the shape.
-	 */
-	protected $x;
-	/**
-	 * @var YAttr $y : The y coordinate of the shape.
-	 */
-	protected $y;
-	/**
 	 * @var StyleAttr $style : The Style instance to add as an attribute
 	 */
 	protected $style;
@@ -61,7 +53,7 @@ abstract class AbstractShapeElement extends DOMElement implements ElementInterfa
 			throw new DOMException('Before appending attributes, this node must be tied to a document');
 		}
 		
-		$requiredProperties = array_merge(['x', 'y'], $this->requiredProperties());
+		$requiredProperties = $this->requiredProperties();
 		$attributes = get_object_vars($this);
 		
 		foreach($attributes as $name => $value) {

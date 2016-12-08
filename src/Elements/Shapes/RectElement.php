@@ -5,24 +5,32 @@ namespace SVGPHPDOMExtender\Elements\Shapes;
 use \DOMElement;
 use SVGPHPDOMExtender\Attributes;
 
-/*Object that represent the document itself. It is the entry point of the objects tree with all nodes.*/
+/*Rect shape.*/
 class RectElement extends AbstractShapeElement
 {
 	protected static $name = 'rect';
 	/**
-	 * @var int $height : Rectangle's height.
+	 * @var XAttr $x : The x coordinate of the shape.
+	 */
+	protected $x;
+	/**
+	 * @var YAttr $y : The y coordinate of the shape.
+	 */
+	protected $y;
+	/**
+	 * @var HeightAttr $height : Rectangle's height.
 	 */
 	protected $height;
 	/**
-	 * @var int $width : Rectangle's width.
+	 * @var WidthAttr $width : Rectangle's width.
 	 */
 	protected $width;
 	/**
-	 * @var int $rx : Rectangle's rx value.
+	 * @var RxAttr $rx : Rectangle's rx value.
 	 */
 	protected $rx;
 	/**
-	 * @var int $ry : Rectangle's ry value.
+	 * @var RyAttr $ry : Rectangle's ry value.
 	 */
 	protected $ry;
 	
@@ -31,6 +39,8 @@ class RectElement extends AbstractShapeElement
 	 */
 	protected function requiredProperties() {
 		return [
+			'x',
+			'y',
 			'height',
 			'width',
 		];
