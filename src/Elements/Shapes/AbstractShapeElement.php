@@ -26,18 +26,23 @@ abstract class AbstractShapeElement extends DOMElement implements ElementInterfa
 		
 		$attributes = array_keys(get_object_vars($this));
 		foreach($attributes as $property) {
-			$class = 'SVGPHPDOMExtender\Attributes\\'.ucfirst($property)."Attr";
-			$this->$property = new $class;
+			$class = 'SVGPHPDOMExtender\Attributes\\'.ucfirst($property).'Attr';
+			$this->{$property} = new $class;
 		}
 	}
 	
 	/**
-	 * Magic method to perform getters and setters over all attributes.
+	 * Magic method to perform getters and setters over all attributes, directly on their value.
 	 * The case notation in use is camelCase (setX, getY, setHeight, ....).
 	 */
 	public function __call($name, $arguments) {
 		if(preg_match('~set(.*)~', $name, $matches)) {
-			$this->{lcfirst($matches[1])}->setValue($arguments[0]);
+			$class = 'SVGPHPDOMExtender\Attributes\\'.ucfirst($matches[1]).'Attr';
+			if(is_string($arguments[0])) {
+				$this->{lcfirst($matches[1])}->setValue($arguments[0]);
+			} elseif($arguments[0] instanceof $class) {
+				$this->{lcfirst($matches[1])} = $arguments[0];
+			}
 		} elseif(preg_match('~get(.*)~', $name, $matches)) {
 			return $this->{lcfirst($matches[1])}->getValue();
 		} else {
@@ -55,9 +60,9 @@ abstract class AbstractShapeElement extends DOMElement implements ElementInterfa
 		
 		$requiredProperties = $this->requiredProperties();
 		$attributes = get_object_vars($this);
-		
+		var_dump($attributes);die;
 		foreach($attributes as $name => $value) {
-			if(in_array($name, $requiredProperties) && null === $value->value) {
+			if(in_array($name, $requiredProperties) && null === $value->setValue()) {
 				throw new InvalidArgumentException(sprintf('The property "%s" is required.', $name));
 			}
 			$this->appendChild($value);
