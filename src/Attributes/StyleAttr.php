@@ -9,11 +9,22 @@ class StyleAttr extends AbstractAttr
 	public static $name = 'style';
 
 	private static $propertiesMapper = [
-		'stroke'          => 'stroke',
-		'strokewidth'     => 'stroke-width',
-		'strokedasharray' => 'stroke-dasharray',
-		'fill'            => 'fill',
-		'fillopacity'     => 'fill-opacity',
+		'stroke'                   => 'stroke',
+		'strokewidth'              => 'stroke-width',
+		'strokedasharray'          => 'stroke-dasharray',
+		'fill'                     => 'fill',
+		'fillopacity'              => 'fill-opacity',
+		'textanchor'               => 'text-anchor',
+		'kerning'                  => 'text-anchor',
+		'letterspacing'            => 'letter-spacing',
+		'wordspacing'              => 'word-spacing',
+		'writingmode'              => 'writing-mode',
+		'glyphorientationvertical' => 'glyph-orientation-vertical',
+		'direction'                => 'direction',
+		'unicodebidi'              => 'unicode-bidi',
+		'fontfamily'               => 'font-family',
+		'fontsize'                 => 'font-size',
+		'baselineshift'            => 'baseline-shift',
  	];
  	
  	public function isStylePropertyValid($propertyName) {
