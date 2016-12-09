@@ -2,7 +2,7 @@
 
 namespace SVGPHPDOMExtender\Attributes;
 
-class StyleAttr extends AbstractAttr
+class PointsAttr extends AbstractAttr
 {
 	public static $name = 'points';
 	

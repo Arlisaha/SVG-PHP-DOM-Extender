@@ -2,6 +2,8 @@
 
 namespace SVGPHPDOMExtender\Attributes;
 
+use SVGPHPDOMExtender\Exceptions\InvalidPropertyException;
+
 class StyleAttr extends AbstractAttr
 {
 	public static $name = 'style';
@@ -13,14 +15,30 @@ class StyleAttr extends AbstractAttr
 		'fill'            => 'fill',
 		'fillopacity'     => 'fill-opacity',
  	];
+ 	
+ 	public function isStylePropertyValid($propertyName) {
+ 		return in_array($propertyName, self::$propertiesMapper);
+ 	}
+ 	
+ 	public function isStylePropertyAccessorNameValid($propertyAccessorName) {
+ 		return array_key_exists(strtolower($propertyAccessorName), self::$propertiesMapper);
+ 	}
+ 	
+ 	public function stylePropertyExists($propertyName) {
+ 		if(!$this->isStylePropertyValid($propertyName)) {
+ 			throw new InvalidPropertyException(sprintf('The property name "%s" is not valid.', $propertyName));
+ 		}
+ 		
+ 		return preg_match('~(?:^|;)('.$propertyName.'):~', $this->value);
+ 	}
 	
 	public function __call($name, $arguments) {
 		//Check if given name to set is available in the list.
-		if(preg_match('~(set|get)(.*)~', $name, $matches) && array_key_exists(strtolower($matches[1]), self::$propertiesMapper)) {
+		if(preg_match('~(set|get)(.*)~', $name, $matches) && $this->isStylePropertyAccessorNameValid($matches[1])) {
 			$property = self::$propertiesMapper[strtolower($matches[1])];
 			$pieces = explode(';', $this->value);
 			$newPiece = $property.':'.$arguments[0];
-			$pregMatch = preg_match('~(?:^|;)('.$property.'):~', $this->value);
+			$pregMatch = $this->stylePropertyExists($property);
 
 			switch($matches[0]) {
 				case 'get':
