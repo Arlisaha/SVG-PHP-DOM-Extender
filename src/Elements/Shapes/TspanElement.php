@@ -5,21 +5,24 @@ namespace SVGPHPDOMExtender\Elements\Shapes;
 use \DOMElement;
 use SVGPHPDOMExtender\Attributes;
 
-/*Polygon shape.*/
-class PolygonElement extends AbstractShapeElement
+/*Tspan shape.*/
+class TspanElement extends AbstractShapeElement
 {
-	protected static $name = 'polygon';
+	protected static $name = 'tspan';
 	/**
-	 * @var PointsAttr $points : The points to draw the line.
+	 * @var DxAttr $dx : The delta x positionning.
 	 */
-	protected $points;
+	protected $dx;
+	/**
+	 * @var DyAttr $dy : The delta y positionning.
+	 */
+	protected $dy;
 	
 	/**
 	 * @return Array : List of required properties.
 	 */
 	protected function requiredProperties() {
 		return [
-			'points',
 		];
 	}
 }

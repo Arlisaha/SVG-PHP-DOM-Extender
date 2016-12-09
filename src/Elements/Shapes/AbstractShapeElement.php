@@ -38,13 +38,13 @@ abstract class AbstractShapeElement extends DOMElement implements ElementInterfa
 	public function __call($name, $arguments) {
 		if(preg_match('~set(.*)~', $name, $matches)) {
 			$class = 'SVGPHPDOMExtender\Attributes\\'.ucfirst($matches[1]).'Attr';
-			if(is_string($arguments[0])) {
-				$this->{lcfirst($matches[1])}->setValue($arguments[0]);
-			} elseif($arguments[0] instanceof $class) {
+			if($arguments[0] instanceof $class) {
 				$this->{lcfirst($matches[1])} = $arguments[0];
+			} else {
+				$this->{lcfirst($matches[1])}->setValue($arguments[0]);
 			}
 		} elseif(preg_match('~get(.*)~', $name, $matches)) {
-			return $this->{lcfirst($matches[1])}->getValue();
+			return $this->{lcfirst($matches[1])};
 		} else {
 			throw new BadMethodCallException(sprintf('The requested method "%s" does not exist. Only getters and setters and "appendProperties" are available.', $name));
 		}
@@ -55,12 +55,12 @@ abstract class AbstractShapeElement extends DOMElement implements ElementInterfa
 	 */
 	public function appendProperties() {
 		if(null === $this->parentNode) {
-			throw new DOMException('Before appending attributes, this node must be tied to a document');
+			throw new DOMException('Before appending attributes and/or nodes, this node must be tied to a document');
 		}
 		
 		$requiredProperties = $this->requiredProperties();
 		$attributes = get_object_vars($this);
-		var_dump($attributes);die;
+		
 		foreach($attributes as $name => $value) {
 			if(in_array($name, $requiredProperties) && null === $value->setValue()) {
 				throw new InvalidArgumentException(sprintf('The property "%s" is required.', $name));

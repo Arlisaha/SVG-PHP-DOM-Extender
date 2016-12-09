@@ -5,21 +5,21 @@ namespace SVGPHPDOMExtender\Elements\Shapes;
 use \DOMElement;
 use SVGPHPDOMExtender\Attributes;
 
-/*Polygon shape.*/
-class PolygonElement extends AbstractShapeElement
+/*Tref shape.*/
+class TrefElement extends AbstractShapeElement
 {
-	protected static $name = 'polygon';
+	protected static $name = 'tref';
 	/**
-	 * @var PointsAttr $points : The points to draw the line.
+	 * @var XlinkHrefAttr $xlinkHref : The reference of the text to use.
 	 */
-	protected $points;
+	protected $xlinkHref;
 	
 	/**
 	 * @return Array : List of required properties.
 	 */
 	protected function requiredProperties() {
 		return [
-			'points',
+			'xlinkHref',
 		];
 	}
 }

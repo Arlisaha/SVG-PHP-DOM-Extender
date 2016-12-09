@@ -5,7 +5,7 @@ namespace SVGPHPDOMExtender\Elements\Shapes;
 use \DOMElement;
 use SVGPHPDOMExtender\Attributes;
 
-/*Line shape.*/
+/*Polyline shape.*/
 class PolylineElement extends AbstractShapeElement
 {
 	protected static $name = 'polyline';

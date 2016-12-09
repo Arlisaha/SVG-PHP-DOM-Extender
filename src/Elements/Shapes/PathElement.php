@@ -5,21 +5,21 @@ namespace SVGPHPDOMExtender\Elements\Shapes;
 use \DOMElement;
 use SVGPHPDOMExtender\Attributes;
 
-/*Polygon shape.*/
-class PolygonElement extends AbstractShapeElement
+/*Path shape.*/
+class PathElement extends AbstractShapeElement
 {
-	protected static $name = 'polygon';
+	protected static $name = 'path';
 	/**
-	 * @var PointsAttr $points : The points to draw the line.
+	 * @var DAttr $d : The drawing commands.
 	 */
-	protected $points;
+	protected $d;
 	
 	/**
 	 * @return Array : List of required properties.
 	 */
 	protected function requiredProperties() {
 		return [
-			'points',
+			'd',
 		];
 	}
 }
