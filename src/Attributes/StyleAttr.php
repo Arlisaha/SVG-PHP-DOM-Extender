@@ -11,6 +11,7 @@ class StyleAttr extends AbstractAttr
 		'strokewidth'     => 'stroke-width',
 		'strokedasharray' => 'stroke-dasharray',
 		'fill'            => 'fill',
+		'fillopacity'     => 'fill-opacity',
  	];
 	
 	public function __call($name, $arguments) {
