@@ -59,9 +59,9 @@ abstract class AbstractShapeElement extends DOMElement implements ElementInterfa
 		}
 		
 		$requiredProperties = $this->requiredProperties();
-		$attributes = get_object_vars($this);
+		$properties = get_object_vars($this);
 		
-		foreach($attributes as $name => $value) {
+		foreach($properties as $name => $value) {
 			if(in_array($name, $requiredProperties) && null === $value->setValue()) {
 				throw new InvalidArgumentException(sprintf('The property "%s" is required.', $name));
 			}
