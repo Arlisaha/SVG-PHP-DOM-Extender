@@ -2,11 +2,6 @@
 
 namespace SVGPHPDOMExtender\Elements\Shapes;
 
-use \DOMNode;
-use \DOMElement;
-use \DOMException;
-use \BadMethodCallException;
-use \InvalidArgumentException;
 use SVGPHPDOMExtender\Elements\AbstractElement;
 
 /*Abstract class with basic shape properties.*/
