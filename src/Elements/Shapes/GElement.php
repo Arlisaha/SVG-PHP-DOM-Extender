@@ -1,13 +1,15 @@
 <?php
 
-namespace SVGPHPDOMExtender\Elements;
-
-use SVGPHPDOMExtender\Elements\AbstractElementWithConditionalProcessingAttributes;
+namespace SVGPHPDOMExtender\Elements\Shapes;
 
 /*A "G" element to group shapes together.*/
-class GElement extends AbstractElementWithConditionalProcessingAttributes
+class GElement extends AbstractShapeElement
 {
 	protected static $name = 'g';
+	/**
+	 * @var ClipPathAttr $clipPath : Reference an existent clip path.
+	 */
+	private $clipPath;
 	
 	/**
 	 * @return Array : List of required properties.
