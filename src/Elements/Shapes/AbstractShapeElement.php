@@ -8,10 +8,6 @@ use SVGPHPDOMExtender\Elements\AbstractElement;
 abstract class AbstractShapeElement extends AbstractElement
 {
 	/**
-	 * @var StyleAttr $style : The Style instance to add as an attribute
-	 */
-	protected $style;
-	/**
 	 * @var TransformAttr $transform : The Transform instance to add as an attribute
 	 */
 	protected $transform;

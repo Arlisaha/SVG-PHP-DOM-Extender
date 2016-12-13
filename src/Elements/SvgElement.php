@@ -16,6 +16,14 @@ class SvgElement extends AbstractElement
 	 * @var XmlnsXlinkAttr $xmlnsXlink : $xmlnsXlink value.
 	 */
 	protected $xmlnsXlink;
+	/**
+	 * @var HeightAttr $height : All SVG's height.
+	 */
+	protected $height;
+	/**
+	 * @var WidthAttr $width : All SVG's width.
+	 */
+	protected $width;
 	
 	public function __construct() {
 		parent::__construct();

@@ -12,6 +12,37 @@ use SVGPHPDOMExtender\Elements\ElementInterface;
 /*Abstract class with basic element properties.*/
 abstract class AbstractElement extends DOMElement implements ElementInterface
 {
+	/**
+	 * https://www.w3.org/TR/SVG/struct.html#IDAttribute
+	 * 
+	 * @var IdAttr $id : Unique tag name
+	 */
+	protected $id;
+	/**
+	 * https://www.w3.org/TR/SVG/struct.html#RequiredFeaturesAttribute
+	 * 
+	 * @var RequiredFeaturesAttr $requiredFeatures : The value is a list of feature strings.
+	 */
+	protected $requiredFeatures;
+	/**
+	 * https://www.w3.org/TR/SVG/struct.html#RequiredExtensionsAttribute
+	 * 
+	 * @var RequiredExtensionAttr $requiredExtensions : The value is a list of IRI references which identify the required extensions.
+	 */
+	protected $requiredExtensions;
+	/**
+	 * https://www.w3.org/TR/SVG/struct.html#SystemLanguageAttribute
+	 * 
+	 * @var SystemLanguageAttr $systemLanguage : Evaluates to "true" if one of the languages indicated by user preferences exactly equals one of the languages given in the value of this parameter.
+	 */
+	protected $systemLanguage;
+	/**
+	 * https://www.w3.org/TR/SVG/styling.html#StyleAttribute
+	 * 
+	 * @var StyleAttr $style : The Style instance to add as an attribute
+	 */
+	protected $style;
+	
 	public function __construct() {
 		parent::__construct(static::$name);
 		
