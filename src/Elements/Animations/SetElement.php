@@ -1,6 +1,6 @@
 <?php
 
-namespace SVGPHPDOMExtender\Elements\Shapes\Animations;
+namespace SVGPHPDOMExtender\Elements\Animations;
 
 use SVGPHPDOMExtender\Elements\AbstractElement;
 

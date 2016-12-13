@@ -1,13 +1,13 @@
 <?php
 
-namespace SVGPHPDOMExtender\Elements\Shapes\Animations;
+namespace SVGPHPDOMExtender\Elements\Animations;
 
 use SVGPHPDOMExtender\Elements\AbstractElement;
 
-/*Animate tag.*/
-class AnimateElement extends AbstractAnimationElement
+/*Animate transform tag.*/
+class AnimateTransformElement extends AbstractAnimationElement
 {
-	protected static $name = 'animate';
+	protected static $name = 'animateTransform';
 	/**
 	 * https://www.w3.org/TR/SVG/animate.html#AttributeNameAttribute
 	 * 
@@ -74,6 +74,12 @@ class AnimateElement extends AbstractAnimationElement
 	 * @var AccumulateAttr $accumulate : Controls whether or not the animation is cumulative.
 	 */
 	protected $accumulate;
+	/**
+	 * https://www.w3.org/TR/SVG/animate.html#AnimateTransformElementTypeAttribute
+	 * 
+	 * @var TypeAttr $type : Indicates the type of transformation which is to have its values change over time.
+	 */
+	protected $type;
 	
 	/**
 	 * @return Array : List of required properties.

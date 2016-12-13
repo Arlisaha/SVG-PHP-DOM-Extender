@@ -1,13 +1,13 @@
 <?php
 
-namespace SVGPHPDOMExtender\Elements\Shapes\Animations;
+namespace SVGPHPDOMExtender\Elements\Animations;
 
 use SVGPHPDOMExtender\Elements\AbstractElement;
 
 /*Animate color tag.*/
-class AnimateMotionElement extends AbstractAnimationElement
+class AnimateColorElement extends AbstractAnimationElement
 {
-	protected static $name = 'animateMotion';
+	protected static $name = 'animateColor';
 	/**
 	 * https://www.w3.org/TR/SVG/animate.html#CalcModeAttribute
 	 * 
@@ -62,30 +62,6 @@ class AnimateMotionElement extends AbstractAnimationElement
 	 * @var AccumulateAttr $accumulate : Controls whether or not the animation is cumulative.
 	 */
 	protected $accumulate;
-	/**
-	 * https://www.w3.org/TR/SVG/animate.html#PathAttribute
-	 * 
-	 * @var PathAttr $path : The motion path, expressed in the same format and interpreted the same way as the ‘d’ attribute on the ‘path’ element.
-	 */
-	protected $path;
-	/**
-	 * https://www.w3.org/TR/SVG/animate.html#KeyPointsAttribute
-	 * 
-	 * @var KeyPointsAttr $keyPoints : ‘keyPoints’ takes a semicolon-separated list of floating point values between 0 and 1 and indicates how far along the motion path the object shall move at the moment in time specified by corresponding ‘keyTimes’ value.
-	 */
-	protected $keyPoints;
-	/**
-	 * https://www.w3.org/TR/SVG/animate.html#RotateAttribute
-	 * 
-	 * @var RotateAttr $rotate : The ‘rotate’ attribute post-multiplies a supplemental transformation matrix onto the CTM of the target element to apply a rotation transformation about the origin of the current user coordinate system.
-	 */
-	protected $rotate;
-	/**
-	 * https://www.w3.org/TR/SVG/animate.html#OriginAttribute
-	 * 
-	 * @var OriginAttr $origin.
-	 */
-	protected $origin;
 	
 	/**
 	 * @return Array : List of required properties.
