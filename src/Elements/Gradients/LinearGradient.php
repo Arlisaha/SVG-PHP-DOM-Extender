@@ -1,6 +1,6 @@
 <?php
 
-namespace SVGPHPDOMExtender\Elements;
+namespace SVGPHPDOMExtender\Elements\Gradients;
 
 use SVGPHPDOMExtender\Elements\AbstractElement;
 
