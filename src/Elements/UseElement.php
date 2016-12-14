@@ -11,15 +11,15 @@ class UseElement extends DOMElement
 	/**
 	 * @var XlinkHrefAttr $xlinkHref : The url of the link.
 	 */
-	private $xlinkHref;
+	protected $xlinkHref;
 	/**
 	 * @var XAttr $x : The new x coordinate of the reused shape.
 	 */
-	private $x;
+	protected $x;
 	/**
 	 * @var YAttr $y : The new y coordinate of the reused shape.
 	 */
-	private $x;
+	protected $y;
 	
 	/**
 	 * @return Array : List of required properties.

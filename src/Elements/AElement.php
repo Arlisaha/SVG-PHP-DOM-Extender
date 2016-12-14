@@ -11,11 +11,11 @@ class AElement extends AbstractElement
 	/**
 	 * @var XlinkHrefAttr $xlinkHref : The url of the link.
 	 */
-	private $xlinkHref;
+	protected $xlinkHref;
 	/**
 	 * @var XlinkShowAttr $xlinkShow : The url of the link.
 	 */
-	private $xlinkShow;
+	protected $xlinkShow;
 	
 	/**
 	 * @return Array : List of required properties.
