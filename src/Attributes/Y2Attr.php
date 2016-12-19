@@ -4,5 +4,5 @@ namespace SVGPHPDOMExtender\Attributes;
 
 class Y2Attr extends AbstractAttr
 {
-	public static $name = 'x2';
+	public static $name = 'y2';
 }
