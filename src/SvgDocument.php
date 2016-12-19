@@ -14,6 +14,9 @@ class SvgDocument extends DOMDocument
 	 * @return SvgElement : The created SVG element.
 	 */
 	public function createRootNode() {
-		return $this->appendChild(new SvgElement())->appendProperties();
+		$svgElement = $this->appendChild(new SvgElement());
+		$svgElement->appendProperties();
+		
+		return $svgElement;
 	}
 }
