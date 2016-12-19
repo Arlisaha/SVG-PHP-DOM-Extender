@@ -3,11 +3,7 @@
 namespace SVGPHPDOMExtender;
 
 use \DOMDocument;
-use \DOMNode;
-use GroupElement;
 use SVGPHPDOMExtender\Elements\SvgElement;
-use SVGPHPDOMExtender\Elements\GElement;
-use SVGPHPDOMExtender\Elements\Shapes\RectElement;
 
 /*Object that represent the document itself.*/
 class SvgDocument extends DOMDocument
