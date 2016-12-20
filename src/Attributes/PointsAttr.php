@@ -17,6 +17,6 @@ class PointsAttr extends AbstractAttr
 			$this->value = '';
 		}
 		
-		$this->value .= sprintf(' %d,%d', $x, $y);
+		$this->value = ltrim(sprintf('%s %d,%d', $this->value, $x, $y));
 	}
 }

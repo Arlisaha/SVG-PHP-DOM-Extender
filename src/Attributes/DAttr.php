@@ -45,7 +45,7 @@ class DAttr extends AbstractAttr
 		$groupNumber = count($coordinates)/$minNumberArguments;
 		$newCoordinates = [];
 		
-		for($i = 0;$i <= $groupNumber;++$i) {
+		for($i = 0;$i < $groupNumber;++$i) {
 			$newCoordinates[] = array_slice($coordinates, $i*$minNumberArguments, $minNumberArguments);
 		}
 		$coordinates = $newCoordinates;
@@ -53,7 +53,7 @@ class DAttr extends AbstractAttr
 		$newCoordinates = [];
 		foreach($coordinates as $group) {
 			$pairs = [];
-			for($i = 0;$i <= $minNumberArguments/2;++$i) {
+			for($i = 0;$i < $minNumberArguments/2;++$i) {
 				$pairs[] = implode(',', array_slice($group, $i*2, 2));
 			}
 			$newCoordinates[] = implode(' ', $pairs);
@@ -248,7 +248,7 @@ class DAttr extends AbstractAttr
 	 * @param int $y : y coordinate.
 	 */
 	public function drawRelativeEllipticalArc($rx, $ry, $xAxisRotation, $largeArcFlag, $sweepflag, $x, $y) {
-		$this->addDraw(sprintf('%s%d,%d %d %d %d %d,%d', self::ELLIPTICALARC, $rx, $ry, $xAxisRotation, $largeArcFlag, $sweepflag, $x, $y));
+		$this->addDraw(sprintf('%s%d,%d %d %d %d %d,%d', self::RELATIVE_ELLIPTICALARC, $rx, $ry, $xAxisRotation, $largeArcFlag, $sweepflag, $x, $y));
 	}
 	
 	/**
@@ -275,6 +275,6 @@ class DAttr extends AbstractAttr
 			$this->value = '';
 		}
 		
-		$this->value .= ' '.trim($fullInstruction);
+		$this->value = trim(sprintf('%s %s', trim($this->value), trim($fullInstruction)));
 	}
 }

@@ -11,6 +11,6 @@ class IdAttr extends AbstractAttr
 	}
 	
 	public function setValue($value) {
-		$this->value ='#'.ltrim($this->value, '#');
+		$this->value ='#'.ltrim($value, '#');
 	}
 }
