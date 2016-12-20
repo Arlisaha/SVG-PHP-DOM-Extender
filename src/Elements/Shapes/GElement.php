@@ -9,7 +9,7 @@ class GElement extends AbstractShapeElement
 	/**
 	 * @var ClipPathAttr $clipPath : Reference an existent clip path.
 	 */
-	private $clipPath;
+	protected $clipPath;
 	
 	/**
 	 * @return Array : List of required properties.

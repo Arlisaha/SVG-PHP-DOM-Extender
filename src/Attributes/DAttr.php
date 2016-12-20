@@ -268,7 +268,7 @@ class DAttr extends AbstractAttr
 	/**
 	 * Append a drawing instruction to the list of existents.
 	 * 
-	 * @param String $instruction : The drawing instruction to add.
+	 * @param String $fullInstruction : The drawing instruction to add.
 	 */
 	public function addDraw($fullInstruction) {
 		if(empty($this->value)) {

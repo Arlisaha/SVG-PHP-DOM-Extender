@@ -20,4 +20,12 @@ class SymbolElement extends AbstractElement
 	 * @var ViewBoxAttr $viewBox : Indicates whether or not to force uniform scaling.
 	 */
 	protected $viewBox;
+	
+	/**
+	 * @return Array : List of required properties.
+	 */
+	protected function requiredProperties() {
+		return [
+		];
+	}
 }

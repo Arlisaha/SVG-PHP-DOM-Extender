@@ -27,15 +27,15 @@ class StyleAttr extends AbstractAttr
 		'fontsize'                 => 'font-size',
 		'baselineshift'            => 'baseline-shift',
  	];
- 	
+
  	public function isStylePropertyValid($propertyName) {
  		return in_array($propertyName, self::$propertiesMapper);
  	}
- 	
+
  	public function isStylePropertyAccessorNameValid($propertyAccessorName) {
  		return array_key_exists(strtolower($propertyAccessorName), self::$propertiesMapper);
  	}
- 	
+
  	public function stylePropertyExists($propertyName) {
  		if(!$this->isStylePropertyValid($propertyName)) {
  			throw new InvalidPropertyException(sprintf('The property name "%s" is not valid.', $propertyName));
@@ -43,14 +43,14 @@ class StyleAttr extends AbstractAttr
  		
  		return preg_match('~(?:^|;)('.$propertyName.'):~', $this->value) ? true : false;
  	}
-	
+ 	
 	public function __call($name, $arguments) {
 		//Check if given name to set is available in the list.
 		if(preg_match('~(set|get)(.*)~', $name, $matches) && $this->isStylePropertyAccessorNameValid($matches[2])) {
 			$property = self::$propertiesMapper[strtolower($matches[2])];
 			$pieces = array_filter(explode(';', $this->value));
 			$pregMatch = $this->stylePropertyExists($property);
-
+			
 			switch($matches[1]) {
 				case 'set':
 					$newPiece = $property.':'.$arguments[0];

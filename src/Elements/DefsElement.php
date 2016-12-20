@@ -12,4 +12,12 @@ class DefsElement extends AbstractElementWithConditionalProcessingAttributes
 	 * @var TransformAttr $transform : Apply transformation over its shapes elements.
 	 */
 	protected $transform;
+	
+	/**
+	 * @return Array : List of required properties.
+	 */
+	protected function requiredProperties() {
+		return [
+		];
+	}
 }

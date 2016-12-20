@@ -18,4 +18,12 @@ class ClipPathElement extends AbstractElementWithConditionalProcessingAttributes
 	 * @var ClipPathUnitsAttr $clipPathUnits : Defines the coordinate system for the contents of the ‘clipPath’.
 	 */
 	protected $clipPathUnits;
+	
+	/**
+	 * @return Array : List of required properties.
+	 */
+	protected function requiredProperties() {
+		return [
+		];
+	}
 }

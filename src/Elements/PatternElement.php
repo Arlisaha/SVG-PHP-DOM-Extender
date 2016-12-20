@@ -68,4 +68,17 @@ class PatternElement extends AbstractElementWithConditionalProcessingAttributes
 	 * @var PatternUnitsAttr $patternUnits : Defines the coordinate system for attributes ‘x’, ‘y’, ‘width’ and ‘height’.
 	 */
 	protected $patternUnits;
+	
+	/**
+	 * @return Array : List of required properties.
+	 */
+	protected function requiredProperties() {
+		return [
+			'xlinkHref',
+			'x',
+			'y',
+			'width',
+			'height',
+		];
+	}
 }

@@ -44,4 +44,16 @@ class MaskElement extends AbstractElementWithConditionalProcessingAttributes
 	 * @var MaskContentUnitsAttr $maskContentUnits : Defines the coordinate system for the contents of the ‘mask’.
 	 */
 	protected $maskContentUnits;
+	
+	/**
+	 * @return Array : List of required properties.
+	 */
+	protected function requiredProperties() {
+		return [
+			'x',
+			'y',
+			'width',
+			'height',
+		];
+	}
 }
