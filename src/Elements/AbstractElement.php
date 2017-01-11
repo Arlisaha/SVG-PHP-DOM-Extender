@@ -30,7 +30,7 @@ abstract class AbstractElement extends DOMElement implements ElementInterface
 		
 		$properties = array_keys(get_object_vars($this));
 		foreach($properties as $property) {
-			$class = 'SVGPHPDOMExtender\Attributes\\'.ucfirst($property).'Attr';
+			$class = sprintf('SVGPHPDOMExtender\Attributes\%sAttr', ucfirst($property));
 			$this->{$property} = new $class;
 		}
 	}
@@ -40,15 +40,19 @@ abstract class AbstractElement extends DOMElement implements ElementInterface
 	 * The case notation in use is camelCase (setX, getY, setHeight, ....).
 	 */
 	public function __call($name, $arguments) {
-		if(preg_match('~set(.*)~', $name, $matches)) {
-			$class = 'SVGPHPDOMExtender\Attributes\\'.ucfirst($matches[1]).'Attr';
-			if($arguments[0] instanceof $class) {
-				$this->{lcfirst($matches[1])} = $arguments[0];
-			} else {
-				$this->{lcfirst($matches[1])}->setValue($arguments[0]);
+		if(preg_match('~(set|get)(.*)~', $name, $matches) && class_exists($class = sprintf('SVGPHPDOMExtender\Attributes\%sAttr', ucfirst($matches[2])))) {
+			switch($matches[1]) {
+				case 'set' : 
+					if($arguments[0] instanceof $class) {
+						$this->{lcfirst($matches[2])} = $arguments[0];
+					} else {
+						$this->{lcfirst($matches[2])}->setValue($arguments[0]);
+					}
+					break;
+				case 'get' : 
+					return $this->{lcfirst($matches[2])};
+					break;
 			}
-		} elseif(preg_match('~get(.*)~', $name, $matches)) {
-			return $this->{lcfirst($matches[1])};
 		} else {
 			throw new BadMethodCallException(sprintf('The requested method "%s" does not exist. Only getters and setters and "appendProperties" are available.', $name));
 		}
