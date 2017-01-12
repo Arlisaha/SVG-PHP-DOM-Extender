@@ -1,11 +1,11 @@
 <?php
 
-namespace OpenMindParser\Converters\SVG\Models;
+namespace SVGPHPDOMExtender\Elements;
 
-use \DOMElement;
+use SVGPHPDOMExtender\Elements\AbstractElement;
 
-/*Object that represent the document itself. It is the entry point of the objects tree with all nodes.*/
-class UseElement extends DOMElement
+/*Use element to reference defined elements.*/
+class UseElement extends AbstractElement
 {
 	protected static $name = 'use';
 	/**
