@@ -71,7 +71,7 @@ abstract class AbstractElement extends DOMElement implements ElementInterface
 		
 		foreach($properties as $name => $value) {
 			//Check if the property is required, and if it is, its value must not be null
-			if(in_array($name, $requiredProperties) && null === $value->getValue()) {
+			if(in_array($name, $requiredProperties) && (null === $value->getValue() || '' === $value->getValue())) {
 				throw new InvalidArgumentException(sprintf('The property "%s" is required.', $name));
 			} elseif(null !== $value->getValue()) {
 				$this->appendChild($value);
