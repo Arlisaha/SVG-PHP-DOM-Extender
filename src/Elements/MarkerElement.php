@@ -5,7 +5,7 @@ namespace SVGPHPDOMExtender\Elements;
 use \DOMElement;
 
 /*Drawing arrowheads or poylmarkers for path, line, polyline or polygon.*/
-class MarkerElement extends DOMElement
+class MarkerElement extends AbstractElement
 {
 	protected static $name = 'marker';
 	/**
